@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF18F7F2-1F03-481C-98F9-4A18A2F12C11}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MemeVM</RootNamespace>
+    <AssemblyName>MemeVM</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Confuser.Core">
+      <HintPath>..\Confuser.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="dnlib">
+      <HintPath>..\dnlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context.cs" />
+    <Compile Include="InjectPhase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Translation\Dispatcher.cs" />
+    <Compile Include="Translation\Handlers\Add.cs" />
+    <Compile Include="Translation\Handlers\Branching.cs" />
+    <Compile Include="Translation\Handlers\Call.cs" />
+    <Compile Include="Translation\Handlers\Comparisons.cs" />
+    <Compile Include="Translation\Handlers\Dup.cs" />
+    <Compile Include="Translation\Handlers\Int.cs" />
+    <Compile Include="Translation\Handlers\Ldarg.cs" />
+    <Compile Include="Translation\Handlers\Ldelem.cs" />
+    <Compile Include="Translation\Handlers\Ldfld.cs" />
+    <Compile Include="Translation\Handlers\Ldloc.cs" />
+    <Compile Include="Translation\Handlers\Ldnull.cs" />
+    <Compile Include="Translation\Handlers\Ldstr.cs" />
+    <Compile Include="Translation\Handlers\Long.cs" />
+    <Compile Include="Translation\Handlers\Newarr.cs" />
+    <Compile Include="Translation\Handlers\Pop.cs" />
+    <Compile Include="Translation\Handlers\Ret.cs" />
+    <Compile Include="Translation\Handlers\Starg.cs" />
+    <Compile Include="Translation\Handlers\Stloc.cs" />
+    <Compile Include="Translation\Handlers\Stfld.cs" />
+    <Compile Include="Translation\Handlers\Useless.cs" />
+    <Compile Include="Translation\Helpers\Map.cs" />
+    <Compile Include="Translation\Helpers\TokenGetter.cs" />
+    <Compile Include="Translation\IHandler.cs" />
+    <Compile Include="Translation\Helpers\Offset.cs" />
+    <Compile Include="Translation\Helpers\Offsets.cs" />
+    <Compile Include="Translation\VMBody.cs" />
+    <Compile Include="Translation\VMInstruction.cs" />
+    <Compile Include="Translation\VMOpCode.cs" />
+    <Compile Include="VirtualizatonPhase.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
